@@ -1,0 +1,11 @@
+query getUsers {
+  users {
+    age
+    id
+    name
+  }
+}
+
+mutation CreateUser {
+  createUser(newUser: { name: "test", age: 28 })
+}
