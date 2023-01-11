@@ -1,19 +1,23 @@
 <script lang="ts" setup>
-import { useMutation, useQuery } from '@urql/vue';
-import { GetUsersDocument, CreateUserDocument, CreateUserMutation, CreateUserMutationVariables } from '.types/gql/graphql';
+import { useQuery } from '@urql/vue';
+import { GetTodosDocument } from '.types/hasura/gql/graphql';
+import { GetProfilesDocument } from '.types/gql/graphql';
 
-const { data } = useQuery({ query: GetUsersDocument })
+//const { data } = useQuery({ query: GetProfilesDocument })
+const { data } = useQuery({ query: GetTodosDocument })
+const profiles = useQuery({ query: GetProfilesDocument })
 
-data.value?.users?.map((u) => {
-  u.name
+console.log(data)
+
+data.value?.todos?.map((u) => {
+  u.id
 })
-
-useMutation<CreateUserMutation, CreateUserMutationVariables>(CreateUserDocument)
 
 </script>
 
 <template>
   <div>
     <p>{{ data }}</p>
+    <p>{{ profiles.data }}</p>
   </div>
 </template>

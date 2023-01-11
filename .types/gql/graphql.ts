@@ -18,48 +18,48 @@ export type Scalars = {
 
 export type Mutation = {
   __typename?: 'Mutation';
-  createUser: Scalars['String'];
-  removeUser: Scalars['Boolean'];
+  createProfile: Scalars['String'];
+  removeProfile: Scalars['Boolean'];
 };
 
 
-export type MutationCreateUserArgs = {
-  newUser: NewUser;
+export type MutationCreateProfileArgs = {
+  newProfile: NewProfile;
 };
 
 
-export type MutationRemoveUserArgs = {
+export type MutationRemoveProfileArgs = {
   id: Scalars['Int'];
 };
 
-export type NewUser = {
+export type NewProfile = {
   age: Scalars['Int'];
   name: Scalars['String'];
 };
 
-export type Query = {
-  __typename?: 'Query';
-  users?: Maybe<Array<UserModel>>;
-};
-
-export type UserModel = {
-  __typename?: 'UserModel';
+export type ProfileModel = {
+  __typename?: 'ProfileModel';
   age: Scalars['Int'];
   createdAt: Scalars['DateTime'];
   id: Scalars['ID'];
   name: Scalars['String'];
 };
 
-export type GetUsersQueryVariables = Exact<{ [key: string]: never; }>;
+export type Query = {
+  __typename?: 'Query';
+  profiles?: Maybe<Array<ProfileModel>>;
+};
+
+export type GetProfilesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetUsersQuery = { __typename?: 'Query', users?: Array<{ __typename?: 'UserModel', age: number, id: string, name: string }> | null };
+export type GetProfilesQuery = { __typename?: 'Query', profiles?: Array<{ __typename?: 'ProfileModel', age: number, id: string, name: string }> | null };
 
-export type CreateUserMutationVariables = Exact<{ [key: string]: never; }>;
-
-
-export type CreateUserMutation = { __typename?: 'Mutation', createUser: string };
+export type CreateProfileMutationVariables = Exact<{ [key: string]: never; }>;
 
 
-export const GetUsersDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getUsers"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"users"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"age"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}}]}}]}}]} as unknown as DocumentNode<GetUsersQuery, GetUsersQueryVariables>;
-export const CreateUserDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"CreateUser"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createUser"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"newUser"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"name"},"value":{"kind":"StringValue","value":"test","block":false}},{"kind":"ObjectField","name":{"kind":"Name","value":"age"},"value":{"kind":"IntValue","value":"28"}}]}}]}]}}]} as unknown as DocumentNode<CreateUserMutation, CreateUserMutationVariables>;
+export type CreateProfileMutation = { __typename?: 'Mutation', createProfile: string };
+
+
+export const GetProfilesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getProfiles"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"profiles"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"age"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}}]}}]}}]} as unknown as DocumentNode<GetProfilesQuery, GetProfilesQueryVariables>;
+export const CreateProfileDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"CreateProfile"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createProfile"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"newProfile"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"name"},"value":{"kind":"StringValue","value":"test","block":false}},{"kind":"ObjectField","name":{"kind":"Name","value":"age"},"value":{"kind":"IntValue","value":"28"}}]}}]}]}}]} as unknown as DocumentNode<CreateProfileMutation, CreateProfileMutationVariables>;

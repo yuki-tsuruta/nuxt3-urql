@@ -7,7 +7,7 @@ import {
 } from "@urql/vue";
 
 export default defineNuxtPlugin((nuxt) => {
-  const apiURL = "http://localhost:3300/graphql";
+  const apiURL = "http://localhost:8080/v1/graphql";
 
   const client = createClient({
     url: apiURL,

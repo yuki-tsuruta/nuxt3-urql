@@ -1,0 +1,11 @@
+query getProfiles {
+  profiles {
+    age
+    id
+    name
+  }
+}
+
+mutation CreateProfile {
+  createProfile(newProfile: { name: "test", age: 28 })
+}
